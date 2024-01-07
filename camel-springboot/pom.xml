@@ -1,0 +1,131 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.javamaster</groupId>
+	<artifactId>camel-springboot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.18</version>
+	</parent>
+
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+
+	<!-- <dependencyManagement> <dependencies> <dependency> <groupId>org.apache.camel.springboot</groupId> 
+		<artifactId>camel-spring-boot-dependencies</artifactId> <version>3.21.3</version> 
+		<type>pom</type> <scope>import</scope> </dependency> </dependencies> </dependencyManagement> -->
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-spring-boot-starter</artifactId>
+			<version>3.21.3</version>
+		</dependency>
+
+		<!-- Mandatory for enabling Camel management via JMX / Hawtio -->
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-management-starter</artifactId>
+			<version>3.21.3</version>
+		</dependency>
+		<!-- (Optional) Required for Hawtio Camel route diagram tab -->
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-spring-boot-xml-starter</artifactId>
+			<version>3.21.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.hawt</groupId>
+			<artifactId>hawtio-springboot</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-jacksonxml-starter</artifactId>
+			<version>3.21.3</version>
+		</dependency>
+
+		<!-- SOAP service dependency -->
+		
+		<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+		</dependency>
+
+		<dependency>
+  			<groupId>org.apache.camel.springboot</groupId>
+  			<artifactId>camel-cxf-soap-starter</artifactId>
+  			<version>3.21.3</version>
+		</dependency>
+
+</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!-- <plugin> <groupId>org.apache.cxf</groupId> <artifactId>cxf-xjc-plugin</artifactId> 
+				<version>3.3.0</version> <executions> <execution> <id>xjc</id> <phase>generate-sources</phase> 
+				<goals> <goal>xsdtojava</goal> </goals> <configuration> <xsdOptions> <xsdOption> 
+				<xsd>${project.basedir}/src/main/resources/loaneligibility.xsd</xsd> <packagename>com.javmonks.camel.soap.api</packagename> 
+				<deleteDirs>false</deleteDirs> </xsdOption> </xsdOptions> </configuration> 
+				</execution> </executions> </plugin> -->
+
+			<!-- Camel soap service -->
+
+			<!-- <plugin> <groupId>org.apache.cxf</groupId> <artifactId>cxf-codegen-plugin</artifactId> 
+				<executions> <execution> <id>generate-sources</id> <phase>generate-sources</phase> 
+				<configuration> <sourceRoot>${basedir}/src/main/java</sourceRoot> <wsdlOptions> 
+				<wsdlOption> <wsdl>${basedir}/src/main/resources/wsdl/loaneligibility.wsdl</wsdl> 
+				</wsdlOption> </wsdlOptions> </configuration> <goals> <goal>wsdl2java</goal> 
+				</goals> </execution> </executions> </plugin> -->
+		</plugins>
+	</build>
+
+
+</project>
